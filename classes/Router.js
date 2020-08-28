@@ -12,8 +12,8 @@ class Router{
 
     constructor(){
         this.setVariables();
-        this.addBaseRoutes();
         this.addControllers();
+        this.addBaseRoutes();
         this.handle404s();
         this.handleErrors();
     }
@@ -38,7 +38,17 @@ class Router{
      * no controllers or models
      */
     addBaseRoutes() {
-        AraDTApp.get('/', this.index);
+        AraDTApp.get('/', this.home);
+        AraDTApp.get('/register', this.signup);
+    
+    }
+
+    home(request, response){
+        response.render('index');
+    }
+
+    signup(request, response){
+        response.render('register');
     }
 
 
